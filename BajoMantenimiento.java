@@ -16,7 +16,4 @@ public void mostrarCuidadosGenerales(){
     System.out.println();
 }
 public abstract void mostrarInfoFamilia();
-
-
-
 }

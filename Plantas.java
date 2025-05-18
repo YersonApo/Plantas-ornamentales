@@ -1,16 +1,10 @@
  abstract class Plantas {
-    //Atributos
+
+     //Atributos
     private String nombre;
     private String clima;
-    private String tamaño;
     private String esDeExterior;
     private String proposito;
-
-    //Atributos para sugerencias
-    private Integer nivelLuz;
-    private Integer nivelRiego;
-    private Integer nivelClima;
-    private Integer nivelAmbiente;
 
      //Constructor
     public Plantas(String nombre, String clima,String esDeExterior,String proposito) {
@@ -34,13 +28,45 @@
 
     public abstract void mostrarCuidadosGenerales();
 
-    public abstract int getNivelRiego();
-    public abstract int getNivelLuz();
-    public abstract int getAmbiente();
-    public abstract int getTamaño();
+     public abstract int getNivelRiego();
+     public abstract int getNivelLuz();
+     public abstract int getAmbiente();
+     public abstract int getTamaño();
 
 
 
     //Getter y Setter
+    public String getClima() {
+        return clima;
+    }
+
+     public void setClima(String clima) {
+         this.clima = clima;
+     }
+
+     public String getNombre() {
+         return nombre;
+     }
+
+     public void setNombre(String nombre) {
+         this.nombre = nombre;
+     }
+
+     public String getEsDeExterior() {
+         return esDeExterior;
+     }
+
+     public void setEsDeExterior(String esDeExterior) {
+         this.esDeExterior = esDeExterior;
+     }
+
+     public String getProposito() {
+         return proposito;
+     }
+
+     public void setProposito(String proposito) {
+         this.proposito = proposito;
+     }
+
 
  }
