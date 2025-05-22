@@ -1,32 +1,38 @@
 public class Araceas extends AltoMantenimiento {
 
     public Araceas() {
-        super("Aráceas", "Húmedo", "Interior", "Decorativo");
+        super("Arácea", "Cálida", "Interior", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-            Familia: Araceae
-            Incluye helechos de interior como monstera y alocasia.
-            Requieren mucha humedad y luz indirecta brillante.
+            🌿 Familia: Araceae
+            Las aráceas son plantas tropicales que prefieren ambientes cálidos y protegidos.
+            Son ideales para interiores con luz indirecta y riego moderado a alto.
+            Su follaje es decorativo y requieren cuidados constantes para mantenerse saludables.
             """);
         System.out.println();
     }
 
     @Override
-    public int getNivelRiego() {
+    public int getNivelLuz() {
         return 2;
     }
 
     @Override
-    public int getNivelLuz() {
-        return 1;
+    public int getNivelRiego() {
+        return 3;
+    }
+
+    @Override
+    public int getTemperatura() {
+        return 3;
     }
 
     @Override
     public int getAmbiente() {
-        return 3;
+        return 1;
     }
 
     @Override

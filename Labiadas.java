@@ -1,21 +1,19 @@
 public class Labiadas extends MedioMantenimiento {
 
     public Labiadas() {
-        super("Labiadas", "Moderado", "Ambos", "Aromática y Ornamental");
+        super("Labiadas", "Templada", "Ambos", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-                Familia: Labiadas
-                Plantas aromáticas y ornamentales que requieren buena aireación 
-                y podas ligeras para un crecimiento saludable.
-                """);
-    }
-
-    @Override
-    public int getNivelRiego() {
-        return 2;
+            🌿 Familia: Lamiaceae
+            Las labiadas son plantas aromáticas con flores llamativas.
+            Necesitan cuidados moderados, con luz media y riego regular.
+            Se adaptan a ambientes interiores y exteriores.
+            Prefieren temperaturas templadas y espacios de tamaño medio.
+            """);
+        System.out.println();
     }
 
     @Override
@@ -24,12 +22,22 @@ public class Labiadas extends MedioMantenimiento {
     }
 
     @Override
+    public int getNivelRiego() {
+        return 3;
+    }
+
+    @Override
+    public int getTemperatura() {
+        return 2;
+    }
+
+    @Override
     public int getAmbiente() {
-        return 1;
+        return 3;
     }
 
     @Override
     public int getTamaño() {
-        return 1;
+        return 2;
     }
 }

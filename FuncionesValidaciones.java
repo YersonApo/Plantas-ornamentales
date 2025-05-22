@@ -35,5 +35,25 @@ public class FuncionesValidaciones {
         }
         return nombre;
     }
+    public static int validarOpcionSugerencias(Scanner sc) {
+        int opcion;
+
+        while (true) {
+            System.out.print("Ingrese una opción (1 a 3): ");
+            String entrada = sc.nextLine().trim();
+
+            if (entrada.matches("\\d+")) {
+                opcion = Integer.parseInt(entrada);
+                if (opcion >= 1 && opcion <= 3) {
+                    return opcion;
+                } else {
+                    System.out.print("Opción fuera de rango. Ingrese un número entre 1 y 3: ");
+                }
+            } else {
+                System.out.print("Entrada no válida. Ingrese solo números: ");
+            }
+        }
+    }
+
 
 }

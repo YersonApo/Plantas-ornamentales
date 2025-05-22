@@ -1,26 +1,33 @@
 public class Leguminosas extends AltoMantenimiento {
 
     public Leguminosas() {
-        super("Leguminosas", "Húmedo", "Interior", "Funcional");
+        super("Leguminosas", "Cálida", "Exterior", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-            Familia: Fabaceae
-            Engloban plantas como guisantes y frijoles ornamentales.
-            Exigen suelo rico en nutrientes y riego frecuente.
+            🌱 Familia: Leguminosae
+            Las leguminosas requieren cuidados intensivos y atención constante.
+            Prefieren ambientes exteriores con temperaturas cálidas.
+            Necesitan luz alta y riego frecuente.
+            Son ideales para jardineros experimentados que buscan plantas llamativas.
             """);
         System.out.println();
     }
 
     @Override
-    public int getNivelRiego() {
-        return 1;
+    public int getNivelLuz() {
+        return 3;
     }
 
     @Override
-    public int getNivelLuz() {
+    public int getNivelRiego() {
+        return 3;
+    }
+
+    @Override
+    public int getTemperatura() {
         return 3;
     }
 
@@ -31,6 +38,6 @@ public class Leguminosas extends AltoMantenimiento {
 
     @Override
     public int getTamaño() {
-        return 1;
+        return 3;
     }
 }

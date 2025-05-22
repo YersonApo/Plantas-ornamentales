@@ -1,16 +1,24 @@
 public class Solanaceas extends MedioMantenimiento {
 
     public Solanaceas() {
-        super("Solanáceas", "Moderado", "Exterior", "Decoración y Fruto");
+        super("Solanáceas", "Templada", "Ambos", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-                Familia: Solanáceas
-                Plantas con flores vistosas y frutos decorativos. 
-                Requieren buena iluminación, suelos bien drenados y vigilancia contra plagas.
-                """);
+            🌿 Familia: Solanaceae
+            Las solanáceas incluyen plantas versátiles con flores atractivas.
+            Requieren un mantenimiento moderado, con riego y luz adecuados.
+            Se adaptan bien tanto a ambientes interiores como exteriores.
+            Prefieren temperaturas templadas y espacios de tamaño medio.
+            """);
+        System.out.println();
+    }
+
+    @Override
+    public int getNivelLuz() {
+        return 2;
     }
 
     @Override
@@ -19,17 +27,17 @@ public class Solanaceas extends MedioMantenimiento {
     }
 
     @Override
-    public int getNivelLuz() {
-        return 3;
+    public int getTemperatura() {
+        return 2;
     }
 
     @Override
     public int getAmbiente() {
-        return 2; // Exterior
+        return 3;
     }
 
     @Override
     public int getTamaño() {
-        return 2; // Tamaño medio
+        return 2;
     }
 }

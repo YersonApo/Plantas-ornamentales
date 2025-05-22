@@ -1,26 +1,33 @@
 public class Orquidea extends AltoMantenimiento {
 
     public Orquidea() {
-        super("Orquídea", "Húmedo", "Interior", "Decorativo");
+        super("Orquídea", "Templada", "Interior", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-            Familia: Orchidaceae
-            Las orquídeas son epífitas, con flores exóticas y larga duración.
-            Necesitan ambiente húmedo y buena circulación de aire.
+            🌸 Familia: Orchidaceae
+            Las orquídeas son plantas delicadas y elegantes que requieren cuidados detallados.
+            Prefieren ambientes interiores con temperaturas templadas.
+            Necesitan luz media, riego moderado y atención constante.
+            Son perfectas para quienes disfrutan de la jardinería especializada.
             """);
         System.out.println();
     }
 
     @Override
-    public int getNivelRiego() {
-        return 3;
+    public int getNivelLuz() {
+        return 2;
     }
 
     @Override
-    public int getNivelLuz() {
+    public int getNivelRiego() {
+        return 2;
+    }
+
+    @Override
+    public int getTemperatura() {
         return 2;
     }
 
@@ -31,6 +38,6 @@ public class Orquidea extends AltoMantenimiento {
 
     @Override
     public int getTamaño() {
-        return 3;
+        return 2;
     }
 }

@@ -32,6 +32,7 @@
      public abstract int getNivelLuz();
      public abstract int getAmbiente();
      public abstract int getTamaño();
+     public abstract int getTemperatura();
 
 
 

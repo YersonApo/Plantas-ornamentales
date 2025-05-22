@@ -4,166 +4,156 @@ public class SistemaDeSugerencias {
     public static void sugerirPlanta() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("***Bienvenido al sistema de sugerencias de plantas***");
+        System.out.println("🌱 *** Bienvenido al sistema de sugerencias de plantas *** 🌱");
         System.out.print("""
-                Para iniciar responda la siguiente pregunta:
-                Segun su disponibilidad (Tiempo,Dinero,Paciencia)
-                ¿Que nivel de mantenimiento para una planta prefiere?
-                
-                1.Bajo Mantenimiento
-                2.Medio Mantenimiento
-                3.Alto Mantenimiento
-                
-                Ingresa el numero segun tu preferencia:""");
-        System.out.println();
-        Integer opmantenimiento = FuncionesValidaciones.validarnumentero(sc);
+                Para comenzar, responde las siguientes preguntas sobre tus preferencias y condiciones:
+
+                Según tu disponibilidad (Tiempo, Dinero, Paciencia)
+                ¿Qué nivel de mantenimiento prefieres para tu planta? 🌿
+
+                1. Bajo Mantenimiento — Plantas fáciles de cuidar, ideales para principiantes.
+                2. Medio Mantenimiento — Requieren cuidados moderados, perfectas para quienes tienen algo de experiencia.
+                3. Alto Mantenimiento — Plantas exigentes que necesitan atención especial y tiempo.
+
+                Ingresa el número según tu preferencia: """);
+        int opmantenimiento = FuncionesValidaciones.validarOpcionSugerencias(sc);
+
+        int luz = obtenerPreferenciaLuz(sc);
+        int riego = obtenerPreferenciaRiego(sc);
+        int temperatura = obtenerPreferenciaTemperatura(sc);
+        int tamaño = obtenerPreferenciaTamaño(sc);
+        int ambiente = obtenerPreferenciaAmbiente(sc);
+
         switch (opmantenimiento) {
-            case 1:
+            case 1 -> {
                 Cactus cactus = new Cactus();
                 Rosas rosas = new Rosas();
                 Asteraceae ast = new Asteraceae();
 
-                Integer luz = ObtenerPreferenciaLuz(sc);
+                int puntosCactus = calcularPuntaje(cactus, luz, riego, temperatura, tamaño, ambiente);
+                int puntosRosas = calcularPuntaje(rosas, luz, riego, temperatura, tamaño, ambiente);
+                int puntosAst = calcularPuntaje(ast, luz, riego, temperatura, tamaño, ambiente);
 
-                Integer riego = ObtenerPreferenciaRiego(sc);
-
-                Integer temp = ObtenerPreferenciaTemperatura(sc);
-
-                Integer amb = ObtenerPreferenciaMetodo(sc);
-
-
-                Integer puntosCactus = calcularPuntaje(cactus, luz, riego, temp, amb);
-                Integer puntosRosa = calcularPuntaje(rosas, luz, riego, temp, amb);
-                Integer puntosAst = calcularPuntaje(ast, luz, riego, temp, amb);
-
-
-
-                if (puntosCactus >= puntosRosa && puntosCactus >= puntosAst) {
-                    System.out.println("Segun tus preferencias te recomendamos la siguiente familia de plantas:");
+                System.out.println("\n🌸 Según tus preferencias, te recomendamos esta familia de plantas:");
+                if (puntosCactus >= puntosRosas && puntosCactus >= puntosAst) {
                     cactus.mostrarInfoBasica();
                     cactus.mostrarInfoFamilia();
-                } else if (puntosRosa >= puntosCactus && puntosRosa >= puntosAst) {
-                    System.out.println("Segun tus preferencias te recomendamos la siguiente familia de plantas:");
+                } else if (puntosRosas >= puntosCactus && puntosRosas >= puntosAst) {
                     rosas.mostrarInfoBasica();
                     rosas.mostrarInfoFamilia();
                 } else {
-                    System.out.println("Segun tus preferencias te recomendamos la siguiente familia de plantas:");
                     ast.mostrarInfoBasica();
                     ast.mostrarInfoFamilia();
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 Palmas palmas = new Palmas();
                 Labiadas labiadas = new Labiadas();
                 Solanaceas solanaceas = new Solanaceas();
 
-                luz = ObtenerPreferenciaLuz(sc);
-                riego = ObtenerPreferenciaRiego(sc);
-                temp = ObtenerPreferenciaTemperatura(sc);
-                amb = ObtenerPreferenciaMetodo(sc);
+                int puntosPalmas = calcularPuntaje(palmas, luz, riego, temperatura, tamaño, ambiente);
+                int puntosLabiadas = calcularPuntaje(labiadas, luz, riego, temperatura, tamaño, ambiente);
+                int puntosSolanaceas = calcularPuntaje(solanaceas, luz, riego, temperatura, tamaño, ambiente);
 
-                Integer puntosPalmas = calcularPuntaje(palmas, luz, riego, temp, amb);
-                Integer puntosLabiadas = calcularPuntaje(labiadas, luz, riego, temp, amb);
-                Integer puntosSolanaceas= calcularPuntaje(solanaceas, luz, riego, temp, amb);
-
+                System.out.println("\n🌿 Según tus preferencias, te recomendamos esta familia de plantas:");
                 if (puntosPalmas >= puntosLabiadas && puntosPalmas >= puntosSolanaceas) {
-                    System.out.println("Segun tus preferencias te recomendamos la familia de las:");
                     palmas.mostrarInfoBasica();
                     palmas.mostrarInfoFamilia();
-                } else if (puntosLabiadas>=puntosPalmas && puntosLabiadas>=puntosSolanaceas) {
-                    System.out.println("Segun tus preferencias te recomendamos la familia de las:");
+                } else if (puntosLabiadas >= puntosPalmas && puntosLabiadas >= puntosSolanaceas) {
                     labiadas.mostrarInfoBasica();
                     labiadas.mostrarInfoFamilia();
-                }else{
-                    System.out.println("Segun tus preferencias te recomendamos la familia de las:");
+                } else {
                     solanaceas.mostrarInfoBasica();
                     solanaceas.mostrarInfoFamilia();
                 }
-                break;
-                case 3:
-                    Orquidea orquidea = new Orquidea();
-                    Leguminosas leguminosas = new Leguminosas();
-                    Araceas araceas = new Araceas();
+            }
+            case 3 -> {
+                Orquidea orquidea = new Orquidea();
+                Leguminosas leguminosas = new Leguminosas();
+                Araceas araceas = new Araceas();
 
-                    luz = ObtenerPreferenciaLuz(sc);
-                    riego = ObtenerPreferenciaRiego(sc);
-                    temp = ObtenerPreferenciaTemperatura(sc);
-                    amb = ObtenerPreferenciaMetodo(sc);
+                int puntosOrquidea = calcularPuntaje(orquidea, luz, riego, temperatura, tamaño, ambiente);
+                int puntosLeguminosas = calcularPuntaje(leguminosas, luz, riego, temperatura, tamaño, ambiente);
+                int puntosAraceas = calcularPuntaje(araceas, luz, riego, temperatura, tamaño, ambiente);
 
-                    Integer puntosOrquidea= calcularPuntaje(orquidea, luz, riego, temp, amb);
-                    Integer puntosLeguminosas= calcularPuntaje(leguminosas, luz, riego, temp, amb);
-                    Integer puntosAraceas = calcularPuntaje(araceas, luz, riego, temp, amb);
-
-                    if (puntosOrquidea >= puntosAraceas && puntosOrquidea >= puntosLeguminosas) {
-                        System.out.println("Segun tus preferencias te recomendamos la familia de las:");
-                        orquidea.mostrarInfoBasica();
-                        orquidea.mostrarInfoFamilia();
-                    } else if (puntosAraceas>=puntosOrquidea && puntosAraceas>=puntosLeguminosas) {
-                        System.out.println("Segun tus preferencias te recomendamos la familia de las:");
-                        araceas.mostrarInfoBasica();
-                        araceas.mostrarInfoFamilia();
-                    }else{
-                        System.out.println("Segun tus preferencias te recomendamos la familia de las:");
-                        leguminosas.mostrarInfoBasica();
-                        leguminosas.mostrarInfoFamilia();
-                    }
-
-
+                System.out.println("\n🌷 Según tus preferencias, te recomendamos esta familia de plantas:");
+                if (puntosOrquidea >= puntosAraceas && puntosOrquidea >= puntosLeguminosas) {
+                    orquidea.mostrarInfoBasica();
+                    orquidea.mostrarInfoFamilia();
+                } else if (puntosAraceas >= puntosOrquidea && puntosAraceas >= puntosLeguminosas) {
+                    araceas.mostrarInfoBasica();
+                    araceas.mostrarInfoFamilia();
+                } else {
+                    leguminosas.mostrarInfoBasica();
+                    leguminosas.mostrarInfoFamilia();
+                }
+            }
+            default -> System.out.println("⚠️ Opción inválida. Por favor, intenta de nuevo.");
         }
     }
 
-    private static Integer ObtenerPreferenciaMetodo(Scanner sc) {
+    private static int obtenerPreferenciaAmbiente(Scanner sc) {
         System.out.print("""
-                Ambiente:
-                1. Interior
-                2. Exterior
-                3. Ambos
-                Prefieres: """);
-        Integer amb = FuncionesValidaciones.validarnumentero(sc);
-        return amb;
+                🌞 ¿Dónde colocarás tu planta?
+                1. Interior — Ideal para ambientes cerrados y controlados.
+                2. Exterior — Perfecto para jardines y terrazas.
+                3. Ambos — Puede adaptarse a interiores y exteriores.
+
+                Ingresa el número de tu preferencia: """);
+        return FuncionesValidaciones.validarOpcionSugerencias(sc);
     }
 
-    private static Integer ObtenerPreferenciaTemperatura(Scanner sc) {
+    private static int obtenerPreferenciaTamaño(Scanner sc) {
         System.out.print("""
-                Temperatura:
-                1. Fría
-                2. Templada
-                3. Cálida
-                Prefieres: """);
-        Integer temp = FuncionesValidaciones.validarnumentero(sc);
-        return temp;
+                📏 ¿Qué tamaño prefieres para tu planta?
+                1. Pequeña — Ideal para espacios reducidos, como escritorios o mesas.
+                2. Mediana — Perfecta para rincones y estantes.
+                3. Grande — Para espacios amplios, jardines o patios.
+
+                Ingresa el número de tu preferencia: """);
+        return FuncionesValidaciones.validarOpcionSugerencias(sc);
     }
 
-    private static Integer ObtenerPreferenciaRiego(Scanner sc) {
+    private static int obtenerPreferenciaTemperatura(Scanner sc) {
         System.out.print("""
-                Nivel de riego:
-                1. Bajo
-                2. Medio
-                3. Alto
-                Prefieres: """);
-        Integer riego = FuncionesValidaciones.validarnumentero(sc);
-        return riego;
+                🌡️ ¿Cuál es la temperatura del lugar donde estará tu planta?
+                1. Fría — Ambientes frescos y con bajas temperaturas.
+                2. Templada — Temperaturas moderadas, ni muy frías ni muy cálidas.
+                3. Cálida — Lugares con clima cálido o tropical.
+
+                Ingresa el número de tu preferencia: """);
+        return FuncionesValidaciones.validarOpcionSugerencias(sc);
     }
 
-    private static Integer ObtenerPreferenciaLuz(Scanner sc) {
-        System.out.println("Responde las siguientes preguntas:");
-
+    private static int obtenerPreferenciaRiego(Scanner sc) {
         System.out.print("""
-                Nivel de luz:
-                1. Baja
-                2. Media
-                3. Alta
-                Prefieres: """);
-        Integer luz = FuncionesValidaciones.validarnumentero(sc);
-        return luz;
+                💧 ¿Qué nivel de riego prefieres?
+                1. Bajo — Plantas que requieren poca agua y cuidados.
+                2. Medio — Requieren riego regular, no muy frecuente ni escaso.
+                3. Alto — Plantas que necesitan riego constante y atención.
+
+                Ingresa el número de tu preferencia: """);
+        return FuncionesValidaciones.validarOpcionSugerencias(sc);
     }
 
-    public static int calcularPuntaje(Plantas planta, int luz, int riego, int temp, int amb) {
+    private static int obtenerPreferenciaLuz(Scanner sc) {
+        System.out.print("""
+                ☀️ ¿Cuál es el nivel de luz disponible para tu planta?
+                1. Baja — Espacios con sombra o poca luz natural.
+                2. Media — Luz indirecta o parcial.
+                3. Alta — Luz directa y abundante.
+
+                Ingresa el número de tu preferencia: """);
+        return FuncionesValidaciones.validarOpcionSugerencias(sc);
+    }
+
+    public static int calcularPuntaje(Plantas planta, int luz, int riego, int temperatura, int tamaño, int ambiente) {
         int puntos = 0;
         if (planta.getNivelLuz() == luz) puntos++;
         if (planta.getNivelRiego() == riego) puntos++;
-        if (planta.getTamaño() == temp) puntos++;
-        if (planta.getAmbiente() == amb) puntos++;
+        if (planta.getTemperatura() == temperatura) puntos++;
+        if (planta.getTamaño() == tamaño) puntos++;
+        if (planta.getAmbiente() == ambiente) puntos++;
         return puntos;
     }
 }

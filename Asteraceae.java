@@ -1,33 +1,42 @@
 public class Asteraceae extends BajoMantenimiento {
 
     public Asteraceae() {
-        super("Asteraceae", "Templado", "Ambos", "Decoración");
+        super("Asteraceae", "Templado", "Ambos", "Ornamental");
     }
 
     @Override
     public void mostrarInfoFamilia() {
         System.out.println("""
-            Familia: Asteraceae
-            Las plantas de la familia Asteraceae son muy diversas y suelen ser fáciles de cuidar.
-            Son ideales para interiores y exteriores con luz moderada.
+            🌼 Familia: Asteraceae
+            Las plantas de la familia Asteraceae son conocidas por su variedad y belleza.
+            Son fáciles de cuidar, ideales para quienes buscan plantas resistentes y decorativas.
+            Se adaptan bien a ambientes con luz media y prefieren temperaturas templadas.
             """);
         System.out.println();
     }
 
     @Override
     public int getNivelRiego() {
-        return 1;
+        return 2;
     }
+
     @Override
     public int getNivelLuz() {
         return 2;
     }
+
     @Override
     public int getAmbiente() {
-        return 1;
+        return 3;
     }
+
     @Override
     public int getTamaño() {
-        return 1;
+        return 2;
+    }
+
+    @Override
+    public int getTemperatura() {
+        return 2;
     }
 }
